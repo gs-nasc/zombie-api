@@ -1,0 +1,6 @@
+{
+    "require": {
+        "illuminate/database": "^8.22",
+        "webonyx/graphql-php": "^14.4"
+    }
+}
