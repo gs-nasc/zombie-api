@@ -29,7 +29,8 @@ class Database
             $capsule->setAsGlobal();
             $capsule->bootEloquent();
 
-        } catch (\Exception $th) {
+        } catch (\Exception $ex) {
+            echo $ex->getMessage();
         }
     }
 
