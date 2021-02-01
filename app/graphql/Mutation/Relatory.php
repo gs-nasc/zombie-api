@@ -6,7 +6,7 @@ use ZombieAPI\Models\Survivor;
 $relatoryMutation = [
     'infectedPercent' => [
         'type' => $relatoryType,
-        'resolve' => function ($root, $args) {
+        'resolve' => function () {
 
             $totalCount = Survivor::get()->count();
             $infectedCount = Survivor::where('infected', 1)->get()->count();
@@ -25,7 +25,7 @@ $relatoryMutation = [
     ],
     'noInfectedPercent' => [
         'type' => $relatoryType,
-        'resolve' => function ($root, $args) {
+        'resolve' => function () {
 
             $totalCount = Survivor::get()->count();
             $noInfectedCount = Survivor::where('infected', 0)->get()->count();
@@ -44,7 +44,7 @@ $relatoryMutation = [
     ],
     'mediaOfItems' => [
         'type' => $relatoryType,
-        'resolve' => function ($root, $args) {
+        'resolve' => function () {
             $survivors = Survivor::with('inventory')->get();
             $survivorsTotal = $survivors->count();
 
@@ -81,7 +81,7 @@ $relatoryMutation = [
     ],
     'lostPoints' => [
         'type' => $relatoryType,
-        'resolve' => function ($root, $args) {
+        'resolve' => function () {
             $survivors = Survivor::where('infected', 1)->with('inventory')->get();
 
             $totalPoints = 0;
